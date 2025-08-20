@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Witnesses – LLM Benchmarks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background-color: #ecf0f1;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    caption {
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI WITNESSES – LLM Benchmarks (August 2025)</h1>
+  <p>This page summarizes the performance of the latest large language models on various benchmarks.</p>
+  <table>
+    <caption>Summary of benchmark results</caption>
+    <tr>
+      <th>Model</th>
+      <th>SWE-bench Verified (resolved)</th>
+      <th>Aider Polyglot (diff mode)</th>
+      <th>LiveCodeBench (pass@1)</th>
+    </tr>
+    <tr>
+      <td>GPT‑5</td>
+      <td>74.9%</td>
+      <td>88%</td>
+      <td>86.6%</td>
+    </tr>
+    <tr>
+      <td>GPT‑4o</td>
+      <td>69.1%</td>
+      <td>79.6%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>GPT‑4-mini</td>
+      <td>68.1%</td>
+      <td>58.2%</td>
+      <td>85.2%</td>
+    </tr>
+    <tr>
+      <td>Claude 3.5 Sonnet</td>
+      <td>49%</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>SWE-agent-LM‑32B</td>
+      <td>40.2%</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>OpenHands LM 32B</td>
+      <td>37.2%</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </table>
+  <p><em>Note:</em> numbers may vary due to differences in evaluation setups and tool usage.</p>
+</body>
+</html>
