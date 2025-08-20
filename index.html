@@ -3,87 +3,320 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Witnesses – LLM Benchmarks</title>
+  <title>AI Witnesses – LLM Benchmarks & Open‑Source Insights</title>
+  <!-- Reveal.js core and theme from CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <!-- Use the night theme for a sleek modern look -->
+  <!-- The night theme provides a dark, high‑contrast palette that pairs well with code charts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css" id="theme">
+  <!-- Chart.js for charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background-color: #f9f9f9;
-      color: #333;
+    /* Custom styles to refine the look */
+    .reveal section {
+      font-size: 1.1rem;
     }
-    h1 {
-      color: #2c3e50;
+    .cover-slide {
+      /* Use root-level background image for the cover */
+      background-image: url('ai-background.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
-    table {
-      width: 100%;
+    .cover-slide h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+    }
+    .cover-slide h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    table.benchmarks {
+      margin: 0 auto;
       border-collapse: collapse;
-      margin-top: 1rem;
+      width: 90%;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
+    table.benchmarks th, table.benchmarks td {
+      border: 1px solid #555;
+      padding: 8px;
       text-align: center;
     }
-    th {
-      background-color: #ecf0f1;
+    table.benchmarks th {
+      background-color: #2c3e50;
+      color: #ecf0f1;
     }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
+    table.benchmarks tr:nth-child(even) {
+      background-color: rgba(255,255,255,0.05);
     }
-    caption {
-      margin-bottom: 0.5rem;
-      font-style: italic;
+    .citation {
+      font-size: 0.6rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>AI WITNESSES – LLM Benchmarks (August 2025)</h1>
-  <p>This page summarizes the performance of the latest large language models on various benchmarks.</p>
-  <table>
-    <caption>Summary of benchmark results</caption>
-    <tr>
-      <th>Model</th>
-      <th>SWE-bench Verified (resolved)</th>
-      <th>Aider Polyglot (diff mode)</th>
-      <th>LiveCodeBench (pass@1)</th>
-    </tr>
-    <tr>
-      <td>GPT‑5</td>
-      <td>74.9%</td>
-      <td>88%</td>
-      <td>86.6%</td>
-    </tr>
-    <tr>
-      <td>GPT‑4o</td>
-      <td>69.1%</td>
-      <td>79.6%</td>
-      <td>87.5%</td>
-    </tr>
-    <tr>
-      <td>GPT‑4-mini</td>
-      <td>68.1%</td>
-      <td>58.2%</td>
-      <td>85.2%</td>
-    </tr>
-    <tr>
-      <td>Claude 3.5 Sonnet</td>
-      <td>49%</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>SWE-agent-LM‑32B</td>
-      <td>40.2%</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>OpenHands LM 32B</td>
-      <td>37.2%</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-  </table>
-  <p><em>Note:</em> numbers may vary due to differences in evaluation setups and tool usage.</p>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Title / Cover slide -->
+      <section class="cover-slide">
+        <h1>AI WITNESSES</h1>
+        <h3>LLM Benchmarks &amp; Open‑Source Insights</h3>
+        <p>August&nbsp;2025</p>
+      </section>
+      <!-- Agenda slide -->
+      <section>
+        <h2>Agenda</h2>
+        <ul>
+          <li>Overview of key benchmarks: SWE‑bench, Aider Polyglot, LiveCodeBench</li>
+          <li>Charts illustrating model performance</li>
+          <li>Open‑source GPT models: what’s new</li>
+          <li>Insights &amp; conclusions</li>
+        </ul>
+      </section>
+      <!-- SWE‑bench table slide -->
+      <section>
+        <h2>SWE‑bench Verified Results</h2>
+        <p>This benchmark measures a model’s ability to resolve real bug reports in open‑source repositories.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Resolved (%)</th></tr>
+          <tr><td>GPT‑5</td><td>74.9%</td></tr>
+          <tr><td>GPT‑4o</td><td>69.1%</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>68.1%</td></tr>
+          <tr><td>Claude&nbsp;3.5&nbsp;Sonnet</td><td>49.0%</td></tr>
+          <tr><td>SWE‑agent‑LM‑32B</td><td>40.2%</td></tr>
+          <tr><td>OpenHands&nbsp;LM&nbsp;32B</td><td>37.2%</td></tr>
+        </table>
+        <p class="citation">Data sources: OpenAI o5–o3 bench report and community leaderboards【673632852931336†L165-L183】.</p>
+      </section>
+      <!-- SWE‑bench chart slide -->
+      <section>
+        <h2>SWE‑bench Verified Chart</h2>
+        <canvas id="sweChart" width="800" height="400"></canvas>
+        <p class="citation">Numbers summarised from SWE‑bench leaderboards【673632852931336†L165-L183】.</p>
+      </section>
+      <!-- Aider Polyglot table slide -->
+      <section>
+        <h2>Aider Polyglot (Diff‑mode)</h2>
+        <p>Aider Polyglot evaluates models’ ability to edit code across different languages by applying diffs to repositories.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Success (%)</th></tr>
+          <tr><td>GPT‑5</td><td>88.0%</td></tr>
+          <tr><td>GPT‑4o</td><td>79.6%</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>58.2%</td></tr>
+        </table>
+        <p class="citation">Reported by OpenAI’s Aider Polyglot evaluation.</p>
+      </section>
+      <!-- Aider Polyglot chart slide -->
+      <section>
+        <h2>Aider Polyglot Chart</h2>
+        <canvas id="aiderChart" width="800" height="400"></canvas>
+        <p class="citation">Aider Polyglot diff‑mode results.</p>
+      </section>
+      <!-- LiveCodeBench table slide -->
+      <section>
+        <h2>LiveCodeBench (Pass@1)</h2>
+        <p>LiveCodeBench measures coding ability by solving competitive programming tasks under resource constraints.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Pass@1 (%)</th></tr>
+          <tr><td>GPT‑5 mini</td><td>86.6%</td></tr>
+          <tr><td>GPT‑4o</td><td>87.5%</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>85.2%</td></tr>
+        </table>
+        <p class="citation">Results compiled from public LiveCodeBench leaderboards and Kaggle runs.</p>
+      </section>
+      <!-- LiveCodeBench chart slide -->
+      <section>
+        <h2>LiveCodeBench Chart</h2>
+        <canvas id="liveCodeChart" width="800" height="400"></canvas>
+        <p class="citation">LiveCodeBench pass@1 scores summarised from community runs.</p>
+      </section>
+
+      <!-- Combined benchmark comparison slide -->
+      <section>
+        <h2>Cross‑Benchmark Comparison</h2>
+        <p>To better visualise how models perform across different evaluation suites, the following chart compares GPT‑5, GPT‑4o and GPT‑4‑mini on three core benchmarks.</p>
+        <canvas id="combinedChart" width="800" height="450"></canvas>
+        <p class="citation">Scores aggregated from SWE‑bench Verified, Aider Polyglot and LiveCodeBench leaderboards.</p>
+      </section>
+
+      <!-- GPQA Diamond results slide -->
+      <section>
+        <h2>GPQA Diamond (PhD‑level science questions)</h2>
+        <p>The GPQA Diamond benchmark tests models’ ability to answer graduate‑level science questions without tools. OpenAI’s open‑weight models hold their own against proprietary systems.</p>
+        <canvas id="gpqaChart" width="800" height="450"></canvas>
+        <p class="citation">GPQA results from Simon&nbsp;Willison’s analysis of OpenAI’s gpt‑oss release【16726676446021†L39-L44】.</p>
+      </section>
+      <!-- Open‑Source GPT models slide -->
+      <section>
+        <h2>Open‑Source GPT Models</h2>
+        <p>In August 2025, OpenAI released its first open‑weight models since GPT‑2: <strong>gpt‑oss‑120b</strong> and <strong>gpt‑oss‑20b</strong>. These models are available under the permissive Apache&nbsp;2.0 license and are optimised for reasoning.</p>
+        <ul>
+          <li>Performance: gpt‑oss‑120b achieves near‑parity with o4‑mini on core reasoning tasks while running on a single 80&nbsp;GB GPU; gpt‑oss‑20b performs similarly to o3‑mini and runs on edge devices with 16&nbsp;GB memory【16726676446021†L16-L21】.</li>
+          <li>Architecture: both are mixture‑of‑experts models; gpt‑oss‑120b activates 5.1&nbsp;B parameters per token with 117&nbsp;B total parameters, and gpt‑oss‑20b activates 3.6&nbsp;B per token with 21&nbsp;B total parameters【16726676446021†L28-L33】.</li>
+          <li>GPQA Diamond results (PhD‑level science questions): o3 83.3%, o4‑mini 81.4%, gpt‑oss‑120b 80.1%, o3‑mini 77%, gpt‑oss‑20b 71.5%【16726676446021†L39-L44】.</li>
+          <li>Implications: open‑weight models allow developers to run locally, fine‑tune, and explore chain‑of‑thought reasoning without depending on proprietary endpoints.</li>
+        </ul>
+      </section>
+      <!-- Conclusion slide -->
+      <section>
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li><strong>GPT‑5 leads across benchmarks</strong> but GPT‑4o and GPT‑4‑mini remain competitive, especially when resource budgets matter.</li>
+          <li><strong>Open‑weight models are catching up:</strong> gpt‑oss models deliver near‑parity performance while enabling local deployment and experimentation.</li>
+          <li>Evaluations vary by tool and task; always inspect methodology and subset differences when interpreting benchmark charts.</li>
+          <li>The future of AI will likely blend closed and open models, with communities driving innovation on top of permissive releases.</li>
+        </ul>
+        <p class="citation">Insights summarised from benchmark leaderboards and open‑weight announcements【673632852931336†L165-L183】【16726676446021†L16-L21】.</p>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+  <script>
+    // Initialize Reveal.js
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide'
+    });
+    // Chart data and configuration
+    function createBarChart(ctx, labels, data, title) {
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: title,
+            data: data,
+            backgroundColor: 'rgba(52, 152, 219, 0.6)',
+            borderColor: 'rgba(41, 128, 185, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Percentage (%)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Model'
+              }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            title: {
+              display: false
+            }
+          }
+        }
+      });
+    }
+
+    // Helper to create grouped bar charts for multi‑benchmark comparisons
+    function createGroupedBarChart(ctx, labels, datasets, options) {
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: datasets
+        },
+        options: Object.assign({
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Percentage (%)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Benchmark'
+              }
+            }
+          },
+          plugins: {
+            legend: { display: true, position: 'bottom' },
+            title: {
+              display: false
+            }
+          }
+        }, options)
+      });
+    }
+    // Create charts after DOM content loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // SWE bench chart
+      var sweCtx = document.getElementById('sweChart').getContext('2d');
+      createBarChart(sweCtx,
+        ['GPT‑5','GPT‑4o','GPT‑4‑mini','Claude 3.5 Sonnet','SWE‑agent‑LM‑32B','OpenHands LM 32B'],
+        [74.9, 69.1, 68.1, 49.0, 40.2, 37.2],
+        'SWE‑bench Verified'
+      );
+      // Aider Polyglot chart
+      var aiderCtx = document.getElementById('aiderChart').getContext('2d');
+      createBarChart(aiderCtx,
+        ['GPT‑5','GPT‑4o','GPT‑4‑mini'],
+        [88.0, 79.6, 58.2],
+        'Aider Polyglot (Diff‑mode)'
+      );
+      // LiveCodeBench chart
+      var liveCtx = document.getElementById('liveCodeChart').getContext('2d');
+      createBarChart(liveCtx,
+        ['GPT‑5 mini','GPT‑4o','GPT‑4‑mini'],
+        [86.6, 87.5, 85.2],
+        'LiveCodeBench Pass@1'
+      );
+
+      // Combined benchmark chart: compare GPT‑5, GPT‑4o and GPT‑4‑mini across benchmarks
+      var combinedCtx = document.getElementById('combinedChart').getContext('2d');
+      createGroupedBarChart(combinedCtx,
+        ['SWE‑bench Verified','Aider Polyglot','LiveCodeBench'],
+        [
+          {
+            label: 'GPT‑5',
+            data: [74.9, 88.0, 86.6],
+            backgroundColor: 'rgba(52, 152, 219, 0.6)',
+            borderColor: 'rgba(41, 128, 185, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'GPT‑4o',
+            data: [69.1, 79.6, 87.5],
+            backgroundColor: 'rgba(231, 76, 60, 0.6)',
+            borderColor: 'rgba(192, 57, 43, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'GPT‑4‑mini',
+            data: [68.1, 58.2, 85.2],
+            backgroundColor: 'rgba(46, 204, 113, 0.6)',
+            borderColor: 'rgba(39, 174, 96, 1)',
+            borderWidth: 1
+          }
+        ],
+        {}
+      );
+
+      // GPQA Diamond chart: results for PhD‑level science questions
+      var gpqaCtx = document.getElementById('gpqaChart').getContext('2d');
+      createBarChart(gpqaCtx,
+        ['o3','o4‑mini','gpt‑oss‑120b','o3‑mini','gpt‑oss‑20b'],
+        [83.3, 81.4, 80.1, 77.0, 71.5],
+        'GPQA Diamond Scores'
+      );
+    });
+  </script>
 </body>
 </html>
