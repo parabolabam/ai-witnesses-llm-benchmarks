@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Witnesses – LLM Benchmarks &amp; Open‑Source Insights</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/night.min.css" id="theme">
+  <style>
+    .reveal section img { display:block; margin:0 auto; }
+    table.benchmarks {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+    }
+    table.benchmarks th, table.benchmarks td {
+      border: 1px solid #555;
+      padding: 8px;
+      text-align: center;
+    }
+    table.benchmarks th {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+    }
+    table.benchmarks tr:nth-child(even) {
+      background-color: rgba(255,255,255,0.05);
+    }
+    .citation { font-size: 0.6rem; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover Slide -->
+      <section data-background-image="ai-background.png" data-background-size="cover">
+        <h1>AI WITNESSES</h1>
+        <h3>LLM Benchmarks &amp; Open‑Source Insights</h3>
+      </section>
+
+      <!-- Agenda Slide -->
+      <section>
+        <h2>Agenda</h2>
+        <ul>
+          <li>Overview of key benchmarks: SWE‑bench, Aider Polyglot, LiveCodeBench</li>
+          <li>Charts illustrating model performance</li>
+          <li>Open‑source GPT models: what’s new</li>
+          <li>Insights &amp; conclusions</li>
+        </ul>
+      </section>
+
+      <!-- SWE‑bench Table Slide -->
+      <section>
+        <h2>SWE‑bench Verified Results</h2>
+        <p>This benchmark measures a model’s ability to resolve real bug reports in open‑source repositories.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Resolved (%)</th></tr>
+          <tr><td>GPT‑5</td><td>74.9</td></tr>
+          <tr><td>GPT‑4o</td><td>69.1</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>68.1</td></tr>
+          <tr><td>Claude 3.5 Sonnet</td><td>49.0</td></tr>
+          <tr><td>SWE‑agent‑LM‑32B</td><td>40.2</td></tr>
+          <tr><td>OpenHands LM 32B</td><td>37.2</td></tr>
+        </table>
+        <p class="citation">Data sources: summarised from SWE‑bench leaderboards.</p>
+      </section>
+
+      <!-- SWE‑bench Chart Slide -->
+      <section>
+        <h2>SWE‑bench Verified Chart</h2>
+        <img src="swe_bench_verified.png" alt="SWE‑bench Verified Chart" style="width:80%; max-width:800px;" />
+        <p class="citation">Numbers summarised from SWE‑bench leaderboards.</p>
+      </section>
+
+      <!-- Aider Polyglot Table Slide -->
+      <section>
+        <h2>Aider Polyglot (Diff‑mode)</h2>
+        <p>Aider Polyglot evaluates models’ ability to edit code across different languages by applying diffs to repositories.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Success (%)</th></tr>
+          <tr><td>GPT‑5</td><td>88.0</td></tr>
+          <tr><td>GPT‑4o</td><td>79.6</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>58.2</td></tr>
+        </table>
+        <p class="citation">Reported by OpenAI’s Aider Polyglot evaluation.</p>
+      </section>
+
+      <!-- Aider Polyglot Chart Slide -->
+      <section>
+        <h2>Aider Polyglot Chart</h2>
+        <img src="aider_polyglot.png" alt="Aider Polyglot Chart" style="width:80%; max-width:800px;" />
+        <p class="citation">Aider Polyglot diff‑mode results.</p>
+      </section>
+
+      <!-- LiveCodeBench Table Slide -->
+      <section>
+        <h2>LiveCodeBench (Pass@1)</h2>
+        <p>LiveCodeBench measures coding ability by solving competitive programming tasks under resource constraints.</p>
+        <table class="benchmarks">
+          <tr><th>Model</th><th>Pass@1 (%)</th></tr>
+          <tr><td>GPT‑5 mini</td><td>86.6</td></tr>
+          <tr><td>GPT‑4o</td><td>87.5</td></tr>
+          <tr><td>GPT‑4‑mini</td><td>85.2</td></tr>
+        </table>
+        <p class="citation">Results compiled from public LiveCodeBench leaderboards and Kaggle runs.</p>
+      </section>
+
+      <!-- LiveCodeBench Chart Slide -->
+      <section>
+        <h2>LiveCodeBench Chart</h2>
+        <img src="livecodebench.png" alt="LiveCodeBench Chart" style="width:80%; max-width:800px;" />
+        <p class="citation">LiveCodeBench pass@1 scores summarised from community runs.</p>
+      </section>
+
+      <!-- Cross‑Benchmark Comparison Slide -->
+      <section>
+        <h2>Cross‑Benchmark Comparison</h2>
+        <p>To better visualise how models perform across different evaluation suites, the following chart compares GPT‑5, GPT‑4o and GPT‑4‑mini on three core benchmarks.</p>
+        <img src="cross_benchmark.png" alt="Cross‑Benchmark Comparison Chart" style="width:80%; max-width:800px;" />
+        <p class="citation">Scores aggregated from SWE‑bench Verified, Aider Polyglot and LiveCodeBench leaderboards.</p>
+      </section>
+
+      <!-- GPQA Diamond Results Slide -->
+      <section>
+        <h2>GPQA Diamond (PhD‑level science questions)</h2>
+        <p>The GPQA Diamond benchmark tests models’ ability to answer graduate‑level science questions without tools. OpenAI’s open‑weight models hold their own against proprietary systems.</p>
+        <img src="gpqa_chart.png" alt="GPQA Diamond Chart" style="width:80%; max-width:800px;" />
+        <p class="citation">GPQA results from Simon Willison’s analysis of OpenAI’s gpt‑oss release.</p>
+      </section>
+
+      <!-- Open‑Source GPT Models Slide -->
+      <section>
+        <h2>Open‑source GPT models</h2>
+        <ul>
+          <li>gpt‑oss‑120B and gpt‑oss‑20B achieve near parity with o4‑mini and o3‑mini while running on smaller hardware.</li>
+          <li>Both models are mixture‑of‑experts architectures with 117B and 21B parameters and activate 5.1B or 3.6B per token.</li>
+          <li>GPQA Diamond results: o3 (83.3%), o4‑mini (81.4%), gpt‑oss‑120B (80.1%), o3‑mini (77.0%), gpt‑oss‑20B (71.5%).</li>
+        </ul>
+      </section>
+
+      <!-- Conclusion Slide -->
+      <section>
+        <h2>Conclusion</h2>
+        <ul>
+          <li>GPT‑5 leads across benchmarks, but GPT‑4o and GPT‑4‑mini remain competitive.</li>
+          <li>Open‑weight gpt‑oss models are closing the gap, especially on reasoning tasks.</li>
+          <li>Evaluation results depend heavily on tool usage and reasoning effort settings.</li>
+          <li>The future will see a mix of proprietary and open‑weight models co‑existing.</li>
+        </ul>
+      </section>
+
+      <!-- Sources and Leaderboards Slide -->
+      <section>
+        <h2>Sources &amp; Leaderboards</h2>
+        <ul>
+          <li><a href="https://share.google/tSA9R5bktb1vwhHmh" target="_blank">SWE‑bench leaderboards</a></li>
+          <li><a href="https://aider.chat/leaderboard/" target="_blank">Aider Polyglot leaderboards</a></li>
+          <li><a href="https://livecodebench.dev" target="_blank">LiveCodeBench leaderboards</a></li>
+          <li><a href="https://simonwillison.net/2025/Apr/8/gpt-oss/" target="_blank">gpt‑oss analysis</a></li>
+          <li><a href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank">OpenAI GPT‑5 announcement</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({ hash: true });
+  </script>
+</body>
+</html>
